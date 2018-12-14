@@ -1,3 +1,5 @@
+package v1;
+
 import java.io.*;
 import java.net.*;
 
@@ -5,8 +7,8 @@ class Serveur implements Runnable {
 	private ServerSocket listen_socket;
 	
 	// Cree un serveur TCP - objet de la classe ServerSocket
-	Serveur(int port) throws IOException {
-		listen_socket = new ServerSocket(port);
+	Serveur() throws IOException {
+		listen_socket = new ServerSocket(2600);
 	}
 
 	// Le serveur ecoute et accepte les connexions.
@@ -15,7 +17,7 @@ class Serveur implements Runnable {
 	public void run() {
 		try {
 			while(true)
-				new ServiceInversion(listen_socket.accept()).lancer();
+				new ServiceEmprunt(listen_socket.accept()).lancer();
 		}
 		catch (IOException e) { 
 			try {this.listen_socket.close();} catch (IOException e1) {}

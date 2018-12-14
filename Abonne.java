@@ -1,6 +1,8 @@
 package v1;
 
 public class Abonne {
-	int numero;
-	
+	int num;
+	public Abonne(int num) {
+		this.num=num;
+	}
 }
